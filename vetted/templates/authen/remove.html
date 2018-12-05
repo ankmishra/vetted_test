@@ -1,0 +1,23 @@
+{% extends "authen/base.html" %}
+{% load staticfiles %}
+{% block body_block %}
+  <div class="container">
+    <div class="jumbotron">
+      {% if remove %}
+        <h1> you Remove company</h1>
+      {% else %}
+        <h1>Remove</h1>
+<form enctype="multipart/form-data" method="POST">
+          {% csrf_token %}
+          <select name="company">
+          {% for company in companies %}
+                <option value="{{company.name}}">{{company.name}}</option>
+          {% endfor %}
+          </select>
+          <input type="submit" name="" value="Remove">
+        </form>
+
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

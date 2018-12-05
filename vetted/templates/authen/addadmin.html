@@ -1,0 +1,28 @@
+{% extends "authen/base.html" %}
+{% load staticfiles %}
+{% block body_block %}
+  <div class="container">
+    <div class="jumbotron">
+      {% if added %}
+        <h1> you add the company Admin</h1>
+      {% else %}
+        <h1>Add the company Admin</h1>
+<form enctype="multipart/form-data" method="POST">
+          {% csrf_token %}
+          <select name="company">
+          {% for company in companies %}
+                <option value="{{company.name}}">{{company.name}}</option>
+          {% endfor %}
+          </select>
+          <select name="user">
+          {% for user in users %}
+                <option value="{{user.username}}">{{user.username}}</option>
+          {% endfor %}
+          </select>
+          <input type="submit" name="" value="Make admin">
+        </form>
+
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

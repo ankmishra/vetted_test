@@ -1,0 +1,19 @@
+{% extends "authen/base.html" %}
+{% load staticfiles %}
+{% block body_block %}
+  <div class="container">
+    <div class="jumbotron">
+      {% if added %}
+        <h1> you add the company</h1>
+      {% else %}
+        <h1>Add Here</h1>
+<form enctype="multipart/form-data" method="POST">
+          {% csrf_token %}
+          {{ company_form.as_p }}
+          <input type="submit" name="" value="Register">
+        </form>
+
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

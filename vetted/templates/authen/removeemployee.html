@@ -1,0 +1,23 @@
+{% extends "authen/base.html" %}
+{% load staticfiles %}
+{% block body_block %}
+  <div class="container">
+    <div class="jumbotron">
+      {% if remove %}
+        <h1>Remove Employee</h1>
+      {% else %}
+        <h1>Remove</h1>
+<form enctype="multipart/form-data" method="POST">
+          {% csrf_token %}
+          <select name="employee">
+          {% for employee in employees %}
+                <option value="{{employee.user.username}}">{{employee.user.username}}</option>
+          {% endfor %}
+          </select>
+          <input type="submit" name="" value="Remove">
+        </form>
+
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}
