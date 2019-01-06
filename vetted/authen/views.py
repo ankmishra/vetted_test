@@ -41,6 +41,7 @@ def register(request):
     else:
         user_form = UserForm()
         profile_form = UserProfileInfoForm()
+	print("testing github")
     return render(request,'authen/registration.html',
                           {'user_form':user_form,
                            'profile_form':profile_form,
